@@ -28,3 +28,32 @@ Knowledge graphs model real-world information as nodes (entities) and edges (rel
 ## Note on "graph"
 
 The term "graph" refers to the mathematical graph structure (nodes and edges), not a visual chart or plot. It denotes a network of connected data points that can be queried and reasoned over.
+
+## What is a lexical graph ?
+
+- A lexical graph is a graph structure that represents relationships between words (lexemes) based on their linguistic and semantic connections.
+Structure: Nodes are words/terms, edges represent lexical relationships like:
+
+    - Synonymy (similar meaning)
+    - Antonymy (opposite meaning)
+    - Hypernymy (is-a: "dog" is a "mammal")
+    - Hyponymy (specific type: "poodle" is a type of "dog")
+    - Meronymy (part-of: "wheel" is part of "car")
+
+Example using WordNet (the most famous lexical database):
+
+    "vehicle" (hypernym - broader category)
+        ↓
+    "car" (base word)
+        ↓
+    "sedan", "SUV", "coupe" (hyponyms - specific types)
+    "car" ← synonym → "automobile"
+    "car" ← antonym → (no direct antonym)
+    "car" ← meronym → "wheel", "engine", "door"
+
+**Practical example:**
+When you search "automobile repair" and a system understands to also show results for "car repair" or "vehicle maintenance," it's using a lexical graph to understand that these terms are related.
+
+Difference from knowledge graph:
+- Lexical graph: relationships between words themselves (linguistic)
+- Knowledge graph: relationships between real-world entities (factual)
