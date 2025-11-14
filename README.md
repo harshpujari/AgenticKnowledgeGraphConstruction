@@ -57,3 +57,7 @@ When you search "automobile repair" and a system understands to also show result
 Difference from knowledge graph:
 - Lexical graph: relationships between words themselves (linguistic)
 - Knowledge graph: relationships between real-world entities (factual)
+
+**What is an Agentic Workflow?**
+
+An agentic workflow refers to a system where an AI agent autonomously executes tasks through a series of decision-making steps, rather than simply responding to a single prompt. Unlike traditional LLM interactions that follow a one-shot request-response pattern, agentic workflows allow the AI to take multiple actions, reason about intermediate results, use tools, and iteratively work toward completing complex objectives. The agent acts with agency—making decisions about what to do next based on context and goals.
