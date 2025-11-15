@@ -61,3 +61,18 @@ Difference from knowledge graph:
 **What is an Agentic Workflow?**
 
 An agentic workflow refers to a system where an AI agent autonomously executes tasks through a series of decision-making steps, rather than simply responding to a single prompt. Unlike traditional LLM interactions that follow a one-shot request-response pattern, agentic workflows allow the AI to take multiple actions, reason about intermediate results, use tools, and iteratively work toward completing complex objectives. The agent acts with agency—making decisions about what to do next based on context and goals.
+
+Major Types of Agentic Workflows
+1. Reflection
+  In reflection workflows, the agent generates an initial output and then critically evaluates it, identifying flaws, inconsistencies, or areas for improvement. Based on this self-critique, the agent revises its output through multiple iterations until it meets quality standards.
+  How it works: The agent alternates between generation and critique phases. In the critique phase, it examines its own work from different angles (accuracy, completeness, clarity, logic) and produces specific feedback. Then it uses that feedback to generate an improved version.
+  
+  Use cases:
+
+    Code generation and debugging: The agent writes code, reviews it for bugs or inefficiencies, then refines it
+    
+    Essay writing: Drafting content and iteratively improving structure, argumentation, and clarity
+    
+    Data analysis: Generating analytical insights, checking for logical errors or overlooked patterns, then revising conclusions
+    
+    Creative content: Writing stories or marketing copy where quality improvement through self-editing is valuable
