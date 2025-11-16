@@ -76,3 +76,19 @@ Major Types of Agentic Workflows
     Data analysis: Generating analytical insights, checking for logical errors or overlooked patterns, then revising conclusions
     
     Creative content: Writing stories or marketing copy where quality improvement through self-editing is valuable
+
+2. Tool Use
+Tool use workflows enable agents to interact with external systems, APIs, databases, or functions to accomplish tasks they cannot complete through language generation alone. The agent decides which tools to call, with what parameters, interprets the results, and incorporates them into its reasoning.
+How it works: The agent is provided with a set of available tools and their specifications. When faced with a task, it reasons about which tool(s) to use, makes function calls with appropriate arguments, receives structured results, and uses those results to continue its work or respond to the user.
+
+  Use cases:
+
+    Web research: Searching the internet, fetching web pages, and synthesizing information from multiple sources
+
+    Data retrieval: Querying databases, pulling information from APIs, or accessing internal company systems
+
+    Calculations: Using calculators, running code, or performing mathematical operations beyond the model's native capabilities
+
+    File operations: Reading, writing, and manipulating documents, spreadsheets, or other files
+    
+    Integration tasks: Booking appointments, sending emails, updating CRM systems, or triggering workflows in external platforms
