@@ -63,7 +63,7 @@ Difference from knowledge graph:
 An agentic workflow refers to a system where an AI agent autonomously executes tasks through a series of decision-making steps, rather than simply responding to a single prompt. Unlike traditional LLM interactions that follow a one-shot request-response pattern, agentic workflows allow the AI to take multiple actions, reason about intermediate results, use tools, and iteratively work toward completing complex objectives. The agent acts with agency—making decisions about what to do next based on context and goals.
 
 Major Types of Agentic Workflows
-1. Reflection
+1. **Reflection**
   In reflection workflows, the agent generates an initial output and then critically evaluates it, identifying flaws, inconsistencies, or areas for improvement. Based on this self-critique, the agent revises its output through multiple iterations until it meets quality standards.
   How it works: The agent alternates between generation and critique phases. In the critique phase, it examines its own work from different angles (accuracy, completeness, clarity, logic) and produces specific feedback. Then it uses that feedback to generate an improved version.
   
@@ -77,9 +77,9 @@ Major Types of Agentic Workflows
     
     Creative content: Writing stories or marketing copy where quality improvement through self-editing is valuable
 
-2. Tool Use
-Tool use workflows enable agents to interact with external systems, APIs, databases, or functions to accomplish tasks they cannot complete through language generation alone. The agent decides which tools to call, with what parameters, interprets the results, and incorporates them into its reasoning.
-How it works: The agent is provided with a set of available tools and their specifications. When faced with a task, it reasons about which tool(s) to use, makes function calls with appropriate arguments, receives structured results, and uses those results to continue its work or respond to the user.
+2. **Tool Use**
+  Tool use workflows enable agents to interact with external systems, APIs, databases, or functions to accomplish tasks they cannot complete through language generation alone. The agent decides which tools to call, with what parameters, interprets the results, and incorporates them into its reasoning.
+  How it works: The agent is provided with a set of available tools and their specifications. When faced with a task, it reasons about which tool(s) to use, makes function calls with appropriate arguments, receives structured results, and uses those results to continue its work or respond to the user.
 
   Use cases:
 
@@ -92,3 +92,19 @@ How it works: The agent is provided with a set of available tools and their spec
     File operations: Reading, writing, and manipulating documents, spreadsheets, or other files
     
     Integration tasks: Booking appointments, sending emails, updating CRM systems, or triggering workflows in external platforms
+
+3. **Planning**
+  Planning workflows involve decomposing complex, multi-step tasks into smaller subtasks, creating an execution plan, and then systematically working through that plan. The agent may create the entire plan upfront or adapt it dynamically as it progresses.
+  How it works: Given a high-level goal, the agent first analyzes what needs to be accomplished and breaks it into logical steps or subgoals. It then executes these steps sequentially, tracking progress and potentially revising the plan based on intermediate results or obstacles encountered.
+
+  Use cases:
+
+    Project management: Breaking down a project into tasks, dependencies, and timelines
+
+    Travel planning: Coordinating flights, hotels, activities, and logistics for a trip
+
+    Research tasks: Structuring a comprehensive investigation into a topic with multiple research questions
+
+    Software development: Planning feature implementation across multiple components and files
+    
+    Complex problem-solving: Mathematical proofs, strategic analysis, or multi-stage business decisions
