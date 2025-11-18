@@ -108,3 +108,19 @@ Major Types of Agentic Workflows
     Software development: Planning feature implementation across multiple components and files
     
     Complex problem-solving: Mathematical proofs, strategic analysis, or multi-stage business decisions
+
+4. **Multi-Agent Collaboration**
+  Multi-agent workflows involve multiple AI agents working together, each potentially with different roles, expertise, or perspectives. Agents may debate, divide responsibilities, or sequentially refine each other's work.
+  How it works: Different agent instances are assigned specific roles or personas. They interact through structured communication—one agent's output becomes another's input. This can take forms like debate (agents argue different positions), assembly line (each agent handles one stage), or collaborative (agents jointly solve problems with complementary skills).
+
+  Use cases:
+
+    Code review: One agent writes code, another reviews it, a third suggests improvements
+
+    Content creation: Separate agents for research, writing, and editing
+
+    Decision-making: Multiple agents representing different stakeholder perspectives to evaluate options
+
+    Simulation and gaming: Agents playing different roles in simulated scenarios or game environments
+    
+    Complex analysis: Different agents specializing in different analytical frameworks or domains
