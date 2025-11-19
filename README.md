@@ -122,5 +122,21 @@ Major Types of Agentic Workflows
     Decision-making: Multiple agents representing different stakeholder perspectives to evaluate options
 
     Simulation and gaming: Agents playing different roles in simulated scenarios or game environments
-    
+
     Complex analysis: Different agents specializing in different analytical frameworks or domains
+
+5. **ReAct (Reasoning + Acting)**
+  ReAct workflows create a tight loop where the agent alternates between thinking (reasoning about what to do) and acting (taking concrete steps). Each action's result informs the next reasoning step, creating an interleaved thought-action-observation cycle.
+  How it works: The agent explicitly generates reasoning traces before each action, explaining its thought process and why it's choosing a particular action. After acting, it observes the result, reasons about what it learned, and decides the next action. This continues until the task is complete.
+  
+  Use cases:
+
+    Interactive problem-solving: Navigating complex environments where each step reveals new information
+    
+    Debugging: Trying different fixes, observing results, reasoning about what worked or didn't
+
+    Exploratory research: Searching for information where each discovery shapes the next query
+
+    Dynamic task execution: Situations where the path isn't clear upfront and must be discovered through exploration
+    
+    Question answering: Complex queries requiring multiple information-gathering steps with reasoning between each
