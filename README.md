@@ -138,5 +138,52 @@ Major Types of Agentic Workflows
     Exploratory research: Searching for information where each discovery shapes the next query
 
     Dynamic task execution: Situations where the path isn't clear upfront and must be discovered through exploration
-    
+
     Question answering: Complex queries requiring multiple information-gathering steps with reasoning between each
+
+~~~
+                    ╔════════════════════════════════╗
+                    ║   Knowledge Graph Agent        ║
+                    ╚══════════╦═════════════════════╝
+                               ║
+          ┌────────────────────┼────────────────────┐
+          │                    │                    │
+    ┌─────▼─────┐      ┌───────▼──────┐     ┌──────▼──────┐
+    │Structured │      │Unstructured  │     │  GraphRAG   │
+    │Data Agent │      │ Data Agent   │     │    Agent    │
+    └─────┬─────┘      └───────┬──────┘     └──────┬──────┘
+          │                    │                    │
+    ┌─────┴─────┐        ┌─────┴─────┐             │
+    │           │        │           │             │
+┌───▼───┐   ┌───▼───┐┌───▼───┐   ┌───▼───┐     ┌──▼──┐
+│[L4]   │   │[L5]   ││[L4]   │   │[L5]   │     │ ▄▄▄ │
+│User   │   │File   ││User   │   │File   │     │█   █│
+│Intent │   │Sugges-││Intent │   │Sugges-│     │█ K █│
+│Agent  │   │tion   ││Agent  │   │tion   │     │█ n █│
+└───┬───┘   │Agent  │└───┬───┘   │Agent  │     │█ o █│
+    │       └───┬───┘    │       └───┬───┘     │█ w █│
+    │   ┌───▼───┐        │   ┌───▼───┐         │█ l █│
+    │   │[L6]   │        │   │[L7]   │         │█ e █│
+    │   │Schema │        │   │Entity │         │█ d █│
+    │   │Propo- │        │   │& Fact │         │█ g █│
+    │   │sal    │        │   │Type   │         │█ e █│
+    │   │Agent  │        │   │Propo- │         │█   █│
+    │   └───┬───┘        │   │sal    │         │█ G █│
+    │       │            │   │Agent  │         │█ r █│
+    └───────┴────────────┘   └───┬───┘         │█ a █│
+            │                    │             │█ p █│
+            ▼                    ▼             │█ h █│
+    ┌───────────────┐    ┌───────────────┐     │▀▀▀▀▀│
+    │    Graph      │    │   Knowledge   │     └──▲──┘
+    │ Construction  │───▶│  Extraction   │────────┘
+    │     Plan      │    │     Plan      │
+    └───────────────┘    └───────┬───────┘
+                                 │
+                         ┌───────▼───────────┐
+                         │[L8] Knowledge     │
+                         │Graph Construction │
+                         │      Tool         │
+                         └───────────────────┘
+~~~
+
+hi
