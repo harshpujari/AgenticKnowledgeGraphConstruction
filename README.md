@@ -1,3 +1,5 @@
+## My source to study: https://learn.deeplearning.ai/
+
 # Agentic Knowledge Graph Construction
 
 A knowledge graph is a structured representation of information that stores data as a network of interconnected entities and their relationships.
