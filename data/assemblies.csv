@@ -1,0 +1,65 @@
+assembly_id,assembly_name,quantity,product_id
+A-1010,Seat Cushion,3,P-1003
+A-1011,Back Cushion,3,P-1003
+A-1012,Frame,1,P-1003
+A-1013,Armrest,2,P-1003
+A-1014,Legs,4,P-1003
+A-1015,Cover,1,P-1003
+A-1016,Screws,24,P-1003
+A-1017,Top Panel,1,P-1009
+A-1018,Side Panels,2,P-1009
+A-1019,Bottom Panel,1,P-1009
+A-1020,Back Panel,1,P-1009
+A-1021,Drawer,1,P-1009
+A-1022,Drawer Handle,1,P-1009
+A-1023,Legs,4,P-1009
+A-1024,Screws,20,P-1009
+A-1025,Allen Key,1,P-1009
+A-1026,Table Top,1,P-1008
+A-1027,Legs,4,P-1008
+A-1028,Support Beam,2,P-1008
+A-1029,Screws,16,P-1008
+A-1030,Allen Key,1,P-1008
+A-1031,Base,1,P-1005
+A-1032,Stem,1,P-1005
+A-1033,Shade,1,P-1005
+A-1034,Light Bulb Socket,1,P-1005
+A-1035,Screws,6,P-1005
+A-1036,Power Cord,1,P-1005
+A-1037,Seat,1,P-1000
+A-1038,Back Rest,1,P-1000
+A-1039,Legs,4,P-1000
+A-1040,Screws,12,P-1000
+A-1041,Allen Key,1,P-1000
+A-1042,Side Panels,2,P-1004
+A-1043,Shelves,5,P-1004
+A-1044,Back Panel,1,P-1004
+A-1045,Screws,30,P-1004
+A-1046,Shelf Pins,20,P-1004
+A-1047,Allen Key,1,P-1004
+A-1048,Headboard,1,P-1006
+A-1049,Footboard,1,P-1006
+A-1050,Side Rails,2,P-1006
+A-1051,Slats,14,P-1006
+A-1052,Center Support,1,P-1006
+A-1053,Screws,24,P-1006
+A-1054,Allen Key,1,P-1006
+A-1055,Table Top,1,P-1001
+A-1056,Legs,4,P-1001
+A-1057,Support Beam,2,P-1001
+A-1058,Screws,16,P-1001
+A-1059,Allen Key,1,P-1001
+A-1060,Desktop,1,P-1002
+A-1061,Legs,4,P-1002
+A-1062,Drawer Unit,1,P-1002
+A-1063,Screws,20,P-1002
+A-1064,Cable Management,1,P-1002
+A-1065,Allen Key,1,P-1002
+A-1066,Top Panel,1,P-1007
+A-1067,Side Panels,2,P-1007
+A-1068,Bottom Panel,1,P-1007
+A-1069,Back Panel,1,P-1007
+A-1070,Drawers,4,P-1007
+A-1071,Drawer Handles,4,P-1007
+A-1072,Screws,36,P-1007
+A-1073,Allen Key,1,P-1007
