@@ -1,14 +1,24 @@
 import os
 from typing import Any, Dict
 import atexit
+import logging
 
-from dotenv import load_dotenv
-load_dotenv()
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except Exception:
+    # dotenv is optional for runtime; proceed without failing import
+    pass
 
-from neo4j import (
-    GraphDatabase,
-    Result,
-)
+try:
+    from neo4j import (
+        GraphDatabase,
+        Result,
+    )
+except Exception as e:
+    GraphDatabase = None
+    Result = None
+    _NEO4J_IMPORT_ERROR = str(e)
 
 def tool_success(key:str,result: Any) -> Dict[str, Any]:
     """Convenience function to return a success result."""
@@ -80,18 +90,36 @@ class Neo4jForADK:
         neo4j_password = os.getenv("NEO4J_PASSWORD")
         neo4j_database = os.getenv("NEO4J_DATABASE") or os.getenv("NEO4J_USERNAME") or "neo4j"
         self.database_name = neo4j_database
-        self._driver =  GraphDatabase.driver(
-            neo4j_uri,
-            auth=(neo4j_username, neo4j_password)
-        )
+        self._driver = None
+        self._init_error = None
+        if GraphDatabase is None:
+            # neo4j python package isn't available
+            self._init_error = globals().get('_NEO4J_IMPORT_ERROR', 'neo4j package not installed')
+            logging.getLogger(__name__).warning("neo4j package not available: %s", self._init_error)
+            return
+        try:
+            if not neo4j_uri:
+                raise ValueError("NEO4J_URI environment variable is not set")
+            self._driver = GraphDatabase.driver(
+                neo4j_uri,
+                auth=(neo4j_username, neo4j_password)
+            )
+        except Exception as e:
+            logging.getLogger(__name__).warning("Failed to initialize Neo4j driver: %s", e)
+            self._init_error = str(e)
+            self._driver = None
     
     def get_driver(self):
         return self._driver
     
     def close(self):
-        return self._driver.close()
+        if self._driver:
+            return self._driver.close()
+        return None
     
     def send_query(self, cypher_query, parameters=None) -> Dict[str, Any]:
+        if not self._driver:
+            return tool_error(f"Neo4j driver not initialized: {self._init_error or 'unknown error'}")
         session = self._driver.session()
         try:
             result = session.run(

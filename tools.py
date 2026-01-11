@@ -1,5 +1,13 @@
-from google.adk.tools import ToolContext
-
+try:
+    from google.adk.tools import ToolContext
+except Exception:
+    class ToolContext:
+        def __init__(self):
+            self.state = {}
+from typing import Optional
+from pathlib import Path
+from itertools import islice
+from neo4j_for_adk import graphdb
 from neo4j_for_adk import tool_success, tool_error
 
 def get_approved_user_goal(tool_context: ToolContext):
@@ -21,7 +29,7 @@ def get_approved_files(tool_context: ToolContext):
     return tool_success("approved_files", files)
     
 # Tool: Sample File
-def sample_file(file_path: str, tool_context: ToolContext) -> dict:
+def sample_file(file_path: str, tool_context: Optional[ToolContext]) -> dict:
     """Samples a file by reading its content as text.
     
     Treats any file as text and reads up to a maximum of 100 lines.
@@ -37,9 +45,18 @@ def sample_file(file_path: str, tool_context: ToolContext) -> dict:
               If 'success', includes a 'content' key with textual file content.
               If 'error', includes an 'error_message' key.
     """
-    import_dir_result = graphdb.get_import_directory() # use the helper available in Neo4jForADK
-    if import_dir_result["status"] == "error": return import_dir_result
-    import_dir = Path(import_dir_result["neo4j_import_dir"])
+    import_dir = None
+    if graphdb is not None and hasattr(graphdb, 'get_import_directory'):
+        import_dir_result = graphdb.get_import_directory() # use the helper available in Neo4jForADK
+        if import_dir_result["status"] == "error":
+            return import_dir_result
+        import_dir = Path(import_dir_result["neo4j_import_dir"])
+    else:
+        # Fallback to the local repository 'data' directory so sampling works without Neo4j
+        fallback = Path.cwd() / "data"
+        if not fallback.exists():
+            return tool_error("No Neo4j import directory available and local 'data' directory not found.")
+        import_dir = fallback
 
     full_path_to_file = import_dir / file_path
     
