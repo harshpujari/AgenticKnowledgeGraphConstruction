@@ -13,18 +13,16 @@ from typing import Optional, Dict, Any
 def load_env():
     _ = load_dotenv(find_dotenv())
 
-def get_openai_api_key():
+def get_openai_api_key() -> Optional[str]:
+    """Return the OpenAI API key from environment, or None if not set."""
     load_env()
-    openai_api_key = os.getenv("OPENAI_API_KEY")
-    return openai_api_key
+    return os.getenv("OPENAI_API_KEY")
 
 
-def get_neo4j_import_dir():
-    """Gets the neo4j import directory from an environment variable
-    """
+def get_neo4j_import_dir() -> Optional[str]:
+    """Return the Neo4j import directory from environment, or None if not set."""
     load_env()
-    neo4j_import_dir = os.getenv("NEO4J_IMPORT_DIR")
-    return neo4j_import_dir
+    return os.getenv("NEO4J_IMPORT_DIR")
 
 ### ADK runner wrapper ###
 
@@ -72,8 +70,14 @@ class AgentCaller:
         print(f"<<< Agent Response: {final_response_text}")
         return final_response_text
 
-async def make_agent_caller(agent: Agent, initial_state: Optional[Dict[str, Any]] = {}) -> AgentCaller:
-    """Create and return an AgentCaller instance for the given agent."""
+async def make_agent_caller(agent: Agent, initial_state: Optional[Dict[str, Any]] = None) -> AgentCaller:
+    """Create and return an AgentCaller instance for the given agent.
+
+    initial_state: Optional dict to seed the session state.
+    """
+    if initial_state is None:
+        initial_state = {}
+
     session_service = InMemorySessionService()
     app_name = agent.name + "_app"
     user_id = agent.name + "_user"
