@@ -1,0 +1,21 @@
+# Agentic Knowledge Graph Construction - Dependencies
+# Install with: pip install -r requirements.txt
+
+# Core ADK Framework
+google-adk>=0.1.0
+
+# LLM Support (OpenAI via LiteLLM)
+litellm>=1.0.0
+
+# Environment Configuration
+python-dotenv>=1.0.0
+
+# Neo4j Database
+neo4j>=5.0.0
+neo4j-graphrag>=0.1.0
+
+# Text Processing (fuzzy matching for entity correlation)
+rapidfuzz>=3.0.0
+
+# Optional - Visualization
+graphviz>=0.20.0
