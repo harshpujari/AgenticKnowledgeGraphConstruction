@@ -88,7 +88,7 @@ class Neo4jForADK:
         neo4j_uri = os.getenv("NEO4J_URI")
         neo4j_username = os.getenv("NEO4J_USERNAME") or "neo4j"
         neo4j_password = os.getenv("NEO4J_PASSWORD")
-        neo4j_database = os.getenv("NEO4J_DATABASE") or os.getenv("NEO4J_USERNAME") or "neo4j"
+        neo4j_database = os.getenv("NEO4J_DATABASE") or "neo4j"
         self.database_name = neo4j_database
         self._driver = None
         self._init_error = None
