@@ -1,5 +1,6 @@
 # Add your utilities or helper functions to this file.
 
+import logging
 import os
 from dotenv import load_dotenv, find_dotenv
 
@@ -8,6 +9,8 @@ from google.adk.agents import Agent
 from google.adk.sessions import InMemorySessionService, Session
 from google.adk.runners import Runner
 from typing import Optional, Dict, Any
+
+logger = logging.getLogger(__name__)
 
 # these expect to find a .env file at the directory above the lesson.                                                                                                                     # the format for that file is (without the comment)                                                                                                                                       #API_KEYNAME=AStringThatIsTheLongAPIKeyFromSomeService                                                                                                                                     
 def load_env():
@@ -41,7 +44,7 @@ class AgentCaller:
 
     async def call(self, query: str, verbose: bool = False):
         """Call the agent with a query and return the response."""
-        print(f"\n>>> User Query: {query}")
+        logger.info("User Query: %s", query)
 
         # Prepare the user's message in ADK format
         content = types.Content(role='user', parts=[types.Part(text=query)])
@@ -53,7 +56,7 @@ class AgentCaller:
         async for event in self.runner.run_async(user_id=self.user_id, session_id=self.session_id, new_message=content):
             # You can uncomment the line below to see *all* events during execution
             if verbose:
-                print(f"  [Event] Author: {event.author}, Type: {type(event).__name__}, Final: {event.is_final_response()}, Content: {event.content}")
+                logger.debug("[Event] Author: %s, Type: %s, Final: %s, Content: %s", event.author, type(event).__name__, event.is_final_response(), event.content)
 
             # Key Concept: is_final_response() marks the concluding message for the turn.
             if event.is_final_response():
@@ -67,7 +70,7 @@ class AgentCaller:
 
         self.session = self.runner.session_service.get_session(app_name=self.runner.app_name, user_id=self.user_id, session_id=self.session_id)
 
-        print(f"<<< Agent Response: {final_response_text}")
+        logger.info("Agent Response: %s", final_response_text)
         return final_response_text
 
 async def make_agent_caller(agent: Agent, initial_state: Optional[Dict[str, Any]] = None) -> AgentCaller:
