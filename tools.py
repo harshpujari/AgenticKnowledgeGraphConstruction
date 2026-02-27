@@ -88,7 +88,7 @@ def drop_neo4j_indexes() -> Dict[str, Any]:
     list_constraints = graphdb.send_query(
         """SHOW CONSTRAINTS YIELD name"""
     )
-    if (list_constraints == "error"):
+    if list_constraints["status"] == "error":
         return list_constraints
     constraint_names = [row["name"] for row in list_constraints["query_result"]]
     for constraint_name in constraint_names:
@@ -100,7 +100,7 @@ def drop_neo4j_indexes() -> Dict[str, Any]:
     list_indexes = graphdb.send_query(
         """SHOW INDEXES YIELD name"""
     )
-    if (list_indexes == "error"):
+    if list_indexes["status"] == "error":
         return list_indexes
     index_names = [row["name"] for row in list_indexes["query_result"]]
     for index_name in index_names:
