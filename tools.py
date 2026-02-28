@@ -4,7 +4,7 @@ except Exception:
     class ToolContext:
         def __init__(self):
             self.state = {}
-from typing import Optional,Dict, Any
+from typing import Optional, Dict, Any, List
 from pathlib import Path
 from itertools import islice
 from neo4j_for_adk import graphdb
@@ -204,7 +204,7 @@ def load_nodes_from_csv(
     source_file: str,
     label: str,
     unique_column_name: str,
-    properties: list[str],
+    properties: List[str],
 ) -> Dict[str, Any]:
     """Batch loading of nodes from a CSV file"""
 
